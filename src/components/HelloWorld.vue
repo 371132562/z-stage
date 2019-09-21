@@ -72,6 +72,7 @@
 
 <script>
 import Test from '@/service/api/test'
+
 export default {
     name: 'HelloWorld',
     props: {
