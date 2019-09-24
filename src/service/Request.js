@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import { initFormData } from '../utils'
+import { utils } from '@/assets/scripts'
 
 export default class Request {
     constructor() {}
@@ -58,7 +58,7 @@ export default class Request {
             : this.request({
                   method: 'POST',
                   url,
-                  data: initFormData(data),
+                  data: utils.initFormData(data),
                   headers: {
                       'Content-Type': 'application/x-www-form-urlencoded'
                   }

@@ -1,5 +1,9 @@
+const webpack = require('webpack')
 module.exports = {
     lintOnSave: false,
     publicPath: '',
-    productionSourceMap: false
+    productionSourceMap: false,
+    configureWebpack: {
+        plugins: [new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/)]
+    }
 }
