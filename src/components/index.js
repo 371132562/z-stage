@@ -5,7 +5,3 @@
  * @修改人:
  * @修改时间:
  */
-
-import Loading from '@/components/Loading'
-
-export { Loading }

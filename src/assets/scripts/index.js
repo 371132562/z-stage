@@ -13,8 +13,6 @@ import '@/assets/scripts/plugins/antdesign'
 import utils from '@/assets/scripts/utils.js'
 
 //组件
-import { Loading } from '@/components'
 
 Vue.prototype.$utils = utils
-Vue.prototype.$loading = Loading
 export { utils }

@@ -1,13 +1,13 @@
 import Axios from 'axios'
 import { utils } from '@/assets/scripts'
 
-export default class Request {
+class Request {
     constructor() {}
 
     //默认配置
     defaultConfig = {
         baseURL: '',
-        timeout: 10 * 1000,
+        timeout: 1000 * 20,
         withCredentials: true
     }
 
@@ -17,6 +17,7 @@ export default class Request {
         instance.interceptors.request.use(
             config => {
                 // 在发送请求之前做些什么
+                if (!config.data.loadingSilent) utils.loadingOpen({})
                 return config
             },
             function(error) {
@@ -28,10 +29,12 @@ export default class Request {
         instance.interceptors.response.use(
             resp => {
                 // 对响应数据做点什么
+                utils.loadingClose()
                 return resp
             },
             error => {
                 // 对响应错误做点什么
+                utils.loadingClose()
                 return Promise.reject(error)
             }
         )
@@ -54,7 +57,7 @@ export default class Request {
     }
     post(url, data = {}, isJson = true) {
         return isJson
-            ? this.request({ method: 'POST', url, data })
+            ? this.request({ method: 'POST', url, data, loading: true })
             : this.request({
                   method: 'POST',
                   url,
@@ -68,3 +71,5 @@ export default class Request {
         return Promise.all([...request])
     }
 }
+
+export default Request
