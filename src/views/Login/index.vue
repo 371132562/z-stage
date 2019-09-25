@@ -10,12 +10,17 @@
 </template>
 
 <script>
-import Test from '@/service/api/test'
+import User from '@/service/api/User.js'
 export default {
     name: 'index',
     created() {
-        this.$utils.notificationSuccess()
-        // Test.test({ name: '测试', id: 1 })
+        let params = {
+            username: 'asdad',
+            password: 'asdad'
+        }
+        User.login(params).then(resp => {
+            console.log(resp)
+        })
     },
     methods: {
         load() {}

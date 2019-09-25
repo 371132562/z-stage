@@ -6,7 +6,7 @@ class Request {
 
     //默认配置
     defaultConfig = {
-        baseURL: '',
+        baseURL: process.env.VUE_APP_BASE_URL,
         timeout: 1000 * 20,
         withCredentials: true
     }
@@ -30,7 +30,7 @@ class Request {
             resp => {
                 // 对响应数据做点什么
                 utils.loadingClose()
-                return resp
+                return resp.data
             },
             error => {
                 // 对响应错误做点什么
