@@ -9,7 +9,6 @@
 import Vue from 'vue'
 
 import '@/assets/scripts/global.js'
-import '@/assets/scripts/plugins/antdesign'
 import utils from '@/assets/scripts/utils.js'
 
 //组件

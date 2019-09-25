@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "vue-cli-service serve --open",
-    "build": "vue-cli-service build",
+    "clean": "vue-cli-service build",
+    "build": "vue-cli-service build --no-clean",
+    "report": "vue-cli-service build --report",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -26,9 +28,13 @@
     "@vue/eslint-config-prettier": "^5.0.0",
     "babel-eslint": "^10.0.1",
     "babel-plugin-component": "^1.1.1",
+    "babel-plugin-import": "^1.12.2",
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.0.0",
+    "less": "2.7.2",
+    "less-loader": "^5.0.0",
+    "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.0",
     "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",

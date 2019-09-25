@@ -6,4 +6,10 @@
  * @修改时间:
  */
 
-import 'ant-design-vue/dist/antd.css'
+/*
+使用 babel-plugin-import 来进行按需加载
+import { Button } from 'ant-design-vue';
+Vue.use(Button)
+插件会帮你转换成 ant-design-vue/lib/xxx 的写法。另外此插件配合 style 属性可以做到模块样式的按需自动加载。
+参考https://vue.ant.design/docs/vue/getting-started-cn/按需加载部分
+*/

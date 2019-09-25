@@ -14,7 +14,8 @@ import Test from '@/service/api/test'
 export default {
     name: 'index',
     created() {
-        Test.test({ name: '测试', id: 1 })
+        this.$utils.notificationSuccess()
+        // Test.test({ name: '测试', id: 1 })
     },
     methods: {
         load() {}
