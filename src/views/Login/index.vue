@@ -6,26 +6,55 @@
  * @修改时间:
  -->
 <template>
-    <div @click="load">444</div>
+    <main class="login-wrap">
+        <aside class="login-left">背景</aside>
+        <section class="login-right"></section>
+    </main>
 </template>
 
 <script>
-import User from '@/service/api/User.js'
+import { Register } from '@/service/api'
+
 export default {
     name: 'index',
-    created() {
-        let params = {
-            username: 'asdad',
-            password: 'asdad'
+    data() {
+        return {
+            params: {
+                username: '',
+                password: ''
+            }
         }
-        User.login(params).then(resp => {
-            console.log(resp)
-        })
     },
     methods: {
-        load() {}
+        login() {
+            Register.login(this.params)
+        }
     }
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.login-wrap {
+    margin: 210px auto 0;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px #9c9c9c;
+    .login-left,
+    .login-right {
+        height: 400px;
+    }
+
+    .login-left {
+        width: 45%;
+        background: url('../../assets/images/Login-bg1.jpg') no-repeat top left;
+        background-size: cover;
+    }
+
+    .login-right {
+        width: 55%;
+    }
+}
+</style>

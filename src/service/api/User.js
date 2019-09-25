@@ -8,8 +8,4 @@
 
 import Request from '@/service/Request'
 
-export default new (class Test extends Request {
-    login(data = {}) {
-        return this.post('/login', data)
-    }
-})()
+export default new (class extends Request {})()

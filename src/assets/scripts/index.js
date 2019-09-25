@@ -8,8 +8,10 @@
 
 import Vue from 'vue'
 
-import '@/assets/scripts/global.js'
 import utils from '@/assets/scripts/utils.js'
+
+import '@/assets/scripts/global.js'
+import '@/assets/scripts/plugins/antdesign.js'
 
 //组件
 
