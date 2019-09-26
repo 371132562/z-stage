@@ -37,8 +37,15 @@
                     <a-icon slot="prefix" type="lock" />
                 </a-input>
             </section>
+            <section class="login-hint">
+                <span>新用户注册</span>
+                <span>忘记密码</span>
+            </section>
             <section class="login-bottom">
-                <a-button type="primary" size="large">登 录</a-button>
+                <a-button type="primary" size="large">
+                    <i class="iconfont iconGamepad"></i>
+                    开 始 游 戏
+                </a-button>
             </section>
         </main>
     </div>
@@ -99,11 +106,16 @@ main {
     border-radius: 12px;
     box-shadow: 0 2px 16px #555555;
 
-    .login-top {
-        padding-top: 100px;
+    .login-top,
+    .login-hint,
+    .login-bottom {
         width: 100%;
+        background: rgba(50, 50, 50, 0.5);
         text-align: center;
-        background: rgba(161, 167, 178, 0.3);
+    }
+
+    .login-top {
+        padding-top: 80px;
 
         .login-input {
             width: 260px;
@@ -117,11 +129,31 @@ main {
         }
     }
 
+    .login-hint {
+        padding-top: 10px;
+
+        > span {
+            color: #fff;
+            cursor: pointer;
+            &:first-child {
+                margin-right: 130px;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
     .login-bottom {
-        padding: 60px 0 40px;
-        width: 100%;
-        text-align: center;
-        background: rgba(161, 167, 178, 0.3);
+        padding: 30px 0 40px;
+        i {
+            margin-right: 16px;
+            font-size: 26px;
+            vertical-align: sub;
+        }
+        span {
+            margin-right: 20px;
+        }
     }
 }
 </style>

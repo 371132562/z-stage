@@ -8,3 +8,4 @@
 
 import 'normalize.css'
 import './global.scss'
+import './iconfont/iconfont.css'
