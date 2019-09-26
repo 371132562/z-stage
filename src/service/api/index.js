@@ -5,7 +5,8 @@
  * @修改人:
  * @修改时间:
  */
+
 import User from './User.js'
-import Register from './Register'
+import Register from './Register.js'
 
 export { User, Register }

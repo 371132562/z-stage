@@ -6,10 +6,42 @@
  * @修改时间:
  -->
 <template>
-    <main class="login-wrap">
-        <aside class="login-left">背景</aside>
-        <section class="login-right"></section>
-    </main>
+    <div>
+        <div class="login-wrap" style=""></div>
+        <div class="login-mask"></div>
+        <main class="login-body">
+            <section class="login-top">
+                <a-input
+                    v-model="params.username"
+                    size="large"
+                    class="login-input"
+                    style="margin-bottom: 22px"
+                    placeholder="用户名"
+                    ref="usernameInput"
+                >
+                    <a-icon slot="prefix" type="user" />
+                    <a-icon
+                        slot="suffix"
+                        type="close-circle"
+                        v-if="params.username"
+                        @click="usernameEmpty"
+                    />
+                </a-input>
+                <a-input
+                    v-model="params.password"
+                    size="large"
+                    class="login-input"
+                    placeholder="密码"
+                    ref="usernameInput"
+                >
+                    <a-icon slot="prefix" type="lock" />
+                </a-input>
+            </section>
+            <section class="login-bottom">
+                <a-button type="primary" size="large">登 录</a-button>
+            </section>
+        </main>
+    </div>
 </template>
 
 <script>
@@ -28,6 +60,10 @@ export default {
     methods: {
         login() {
             Register.login(this.params)
+        },
+        usernameEmpty() {
+            this.params.username = ''
+            this.$refs.usernameInput.focus()
         }
     }
 }
@@ -35,26 +71,57 @@ export default {
 
 <style scoped lang="scss">
 .login-wrap {
-    margin: 210px auto 0;
+    overflow: hidden;
+}
+
+.login-mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: url('~@/assets/images/Login-bg5.jpg') no-repeat fixed center;
+    background-size: cover;
+}
+
+main {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    margin: 25vh auto 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    width: 60%;
+    width: 25%;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 2px 16px #9c9c9c;
-    .login-left,
-    .login-right {
-        height: 400px;
+    box-shadow: 0 2px 16px #555555;
+
+    .login-top {
+        padding-top: 100px;
+        width: 100%;
+        text-align: center;
+        background: rgba(161, 167, 178, 0.3);
+
+        .login-input {
+            width: 260px;
+        }
+
+        .anticon-close-circle {
+            cursor: pointer;
+            color: #c1c1c1;
+            transition: color 0.3s;
+            font-size: 12px;
+        }
     }
 
-    .login-left {
-        width: 45%;
-        background: url('../../assets/images/Login-bg1.jpg') no-repeat top left;
-        background-size: cover;
-    }
-
-    .login-right {
-        width: 55%;
+    .login-bottom {
+        padding: 60px 0 40px;
+        width: 100%;
+        text-align: center;
+        background: rgba(161, 167, 178, 0.3);
     }
 }
 </style>

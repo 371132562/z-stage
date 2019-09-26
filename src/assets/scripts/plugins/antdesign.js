@@ -14,7 +14,10 @@ Vue.use(Button)
 参考https://vue.ant.design/docs/vue/getting-started-cn/按需加载部分
 */
 import Vue from 'vue'
-import { Row, Col } from 'ant-design-vue'
+import { Row, Col, Input, Icon, Button } from 'ant-design-vue'
 
 Vue.use(Row)
 Vue.use(Col)
+Vue.use(Input)
+Vue.use(Icon)
+Vue.use(Button)

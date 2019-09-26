@@ -56,3 +56,10 @@
         opacity: 0;
     }
 }
+
+/*Login.vue*/
+.login-input {
+    > input {
+        font-size: 14px;
+    }
+}
