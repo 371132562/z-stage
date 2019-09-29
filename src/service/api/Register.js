@@ -10,6 +10,7 @@ import Request from '@/service/Request'
 
 export default new (class extends Request {
     login(data = {}) {
-        return this.post('/login', data)
+        return this.post('/api/cats', data)
+        // return this.post('/login', data)
     }
 })()

@@ -42,7 +42,7 @@
                 <span>忘记密码</span>
             </section>
             <section class="login-bottom">
-                <a-button type="primary" size="large">
+                <a-button type="primary" size="large" @click="login">
                     <i class="iconfont iconGamepad"></i>
                     开 始 游 戏
                 </a-button>
