@@ -11,7 +11,7 @@
         <a-layout-content>
             <router-view></router-view>
         </a-layout-content>
-        <!--        <a-layout-footer></a-layout-footer>-->
+        <a-layout-footer>底部</a-layout-footer>
     </a-layout>
 </template>
 
@@ -22,13 +22,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.ant-layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
 .ant-layout-header {
     position: fixed;
     width: 100%;
-    height: 64px;
     z-index: 1;
 }
 .ant-layout-content {
     margin-top: 64px;
+    flex: 1;
+}
+.ant-layout-footer {
 }
 </style>
