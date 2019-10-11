@@ -17,7 +17,7 @@ class Request {
         instance.interceptors.request.use(
             config => {
                 // 在发送请求之前做些什么
-                if (!config.data.loadingSilent) utils.loadingOpen({})
+                // if (!config.data.loadingSilent) utils.loadingOpen({})
                 return config
             },
             function(error) {
