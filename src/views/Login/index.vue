@@ -104,13 +104,13 @@ main {
     width: 25%;
     overflow: hidden;
     border-radius: 12px;
+    background: rgba(50, 50, 50, 0.85);
     box-shadow: 0 2px 16px #555555;
 
     .login-top,
     .login-hint,
     .login-bottom {
         width: 100%;
-        background: rgba(50, 50, 50, 0.5);
         text-align: center;
     }
 

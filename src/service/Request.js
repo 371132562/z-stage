@@ -59,12 +59,7 @@ class Request {
     }
     post(url, data = {}, headers = {}, isJson = true) {
         return isJson
-            ? this.request({
-                  method: 'POST',
-                  url,
-                  data,
-                  headers: Object.assign({ 'x-csrf-token': csrfToken }, headers)
-              })
+            ? this.request({ method: 'POST', url, data, headers })
             : this.request({
                   method: 'POST',
                   url,
