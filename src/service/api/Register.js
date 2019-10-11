@@ -11,6 +11,6 @@ import Request from '@/service/Request'
 export default new (class extends Request {
     login(data = {}) {
         // return this.post('/api/cats', data)
-        return this.get('/', data)
+        return this.post('/users', data)
     }
 })()

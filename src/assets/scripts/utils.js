@@ -20,7 +20,12 @@ const utils = {
         }
         return ret.replace(/&$/, '')
     },
-
+    getCookie(name) {
+        let arr,
+            reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
+        if ((arr = document.cookie.match(reg))) return unescape(arr[2])
+        else return null
+    },
     notificationSuccess(title = '成功', desc = '', duration = 2.5) {
         /*全局，成功提示*/
         notification.success({

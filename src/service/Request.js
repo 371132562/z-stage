@@ -1,6 +1,8 @@
 import Axios from 'axios'
 import { utils } from '@/assets/scripts'
 
+let csrfToken = utils.getCookie('csrfToken')
+
 class Request {
     constructor() {}
 
@@ -55,16 +57,22 @@ class Request {
     get(url, params = {}) {
         return this.request({ method: 'GET', url, params })
     }
-    post(url, data = {}, isJson = true) {
+    post(url, data = {}, headers = {}, isJson = true) {
         return isJson
-            ? this.request({ method: 'POST', url, data, loading: true })
+            ? this.request({
+                  method: 'POST',
+                  url,
+                  data,
+                  headers: Object.assign({ 'x-csrf-token': csrfToken }, headers)
+              })
             : this.request({
                   method: 'POST',
                   url,
                   data: utils.initFormData(data),
-                  headers: {
-                      'Content-Type': 'application/x-www-form-urlencoded'
-                  }
+                  headers: Object.assign(
+                      { 'Content-Type': 'application/x-www-form-urlencoded' },
+                      headers
+                  )
               })
     }
     all(...request) {
