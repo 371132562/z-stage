@@ -1,10 +1,11 @@
 <!--
- * @描述: 登录页
- * @创建者: Zhao Linxing
- * @创建时间: 2019/9/24 20:21
- * @修改人:
- * @修改时间:
+ * @Description: 登录页
+ * @Author: Zhao Linxing
+ * @CreateTime: 2019-10-12 09:23:05
+ * @LastEditor: Zhao Linxing
+ * @LastEditTime: 2019-10-12 14:54:00
  -->
+
 <template>
     <div>
         <div class="login-wrap" style=""></div>
@@ -38,7 +39,7 @@
                 </a-input>
             </section>
             <section class="login-hint">
-                <span>新用户注册</span>
+                <span @click="session">新用户注册</span>
                 <span>忘记密码</span>
             </section>
             <section class="login-bottom">
@@ -52,7 +53,7 @@
 </template>
 
 <script>
-import { Register } from '@/service/api'
+import { Register, User } from '@/service/api'
 
 export default {
     name: 'index',
@@ -67,6 +68,9 @@ export default {
     methods: {
         login() {
             Register.login(this.params)
+        },
+        session() {
+            User.session(this.params)
         },
         usernameEmpty() {
             this.params.username = ''
@@ -88,7 +92,7 @@ export default {
     left: 0;
     right: 0;
     z-index: 100;
-    background: url('~@/assets/images/Login-bg5.jpg') no-repeat fixed center;
+    // background: url('~@/assets/images/Login-bg5.jpg') no-repeat fixed center;
     background-size: cover;
 }
 
