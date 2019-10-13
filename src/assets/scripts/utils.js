@@ -1,9 +1,9 @@
 /*
- * @描述: 工具方法
- * @创建者: Zhao Linxing
- * @创建时间: 2019/9/24 20:52
- * @修改人:
- * @修改时间:
+ * @Description: 工具方法
+ * @Author: Zhao Linxing
+ * @CreateTime: 2019-09-25 18:04:21
+ * @LastEditor: Zhao Linxing
+ * @LastEditTime: 2019-10-13 22:16:30
  */
 
 import { notification, message } from 'ant-design-vue'

@@ -3,7 +3,7 @@
  * @Author: Zhao Linxing
  * @CreateTime: 2019-10-12 09:23:05
  * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-12 14:54:00
+ * @LastEditTime: 2019-10-13 22:38:01
  -->
 
 <template>
@@ -39,7 +39,7 @@
                 </a-input>
             </section>
             <section class="login-hint">
-                <span @click="session">新用户注册</span>
+                <span @click="register">新用户注册</span>
                 <span>忘记密码</span>
             </section>
             <section class="login-bottom">
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { Register, User } from '@/service/api'
+import { Register } from '@/service/api'
 
 export default {
     name: 'index',
@@ -69,8 +69,8 @@ export default {
         login() {
             Register.login(this.params)
         },
-        session() {
-            User.session(this.params)
+        register() {
+            Register.register(this.params)
         },
         usernameEmpty() {
             this.params.username = ''
@@ -92,7 +92,7 @@ export default {
     left: 0;
     right: 0;
     z-index: 100;
-    // background: url('~@/assets/images/Login-bg5.jpg') no-repeat fixed center;
+    background: url('~@/assets/images/Login-bg5.jpg') no-repeat fixed center;
     background-size: cover;
 }
 
