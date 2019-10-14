@@ -3,7 +3,7 @@
  * @Author: Zhao Linxing
  * @CreateTime: 2019-10-12 09:23:05
  * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-13 22:38:01
+ * @LastEditTime: 2019-10-14 14:56:39
  -->
 
 <template>
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { Register } from '@/service/api'
+import { RegisterApi } from '@/service'
 
 export default {
     name: 'index',
@@ -67,10 +67,10 @@ export default {
     },
     methods: {
         login() {
-            Register.login(this.params)
+            RegisterApi.login(this.params)
         },
         register() {
-            Register.register(this.params)
+            RegisterApi.register(this.params)
         },
         usernameEmpty() {
             this.params.username = ''
@@ -92,7 +92,7 @@ export default {
     left: 0;
     right: 0;
     z-index: 100;
-    background: url('~@/assets/images/Login-bg5.jpg') no-repeat fixed center;
+    // background: url('~@/assets/images/Login-bg5.jpg') no-repeat fixed center;
     background-size: cover;
 }
 

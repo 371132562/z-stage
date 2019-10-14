@@ -1,13 +1,14 @@
 <!--
- * @描述: 页面布局
- * @创建者: Zhao Linxing
- * @创建时间: 2019/9/27 14:11
- * @修改人:
- * @修改时间:
+ * @Description: 主页布局
+ * @Author: Zhao Linxing
+ * @CreateTime: 2019-10-08 08:44:43
+ * @LastEditor: Zhao Linxing
+ * @LastEditTime: 2019-10-14 13:48:08
  -->
+
 <template>
     <a-layout>
-        <a-layout-header></a-layout-header>
+        <Header></Header>
         <a-layout-content>
             <router-view></router-view>
         </a-layout-content>
@@ -16,8 +17,12 @@
 </template>
 
 <script>
+import Header from './Header'
 export default {
-    name: 'index'
+    name: 'index',
+    components: {
+        Header
+    }
 }
 </script>
 
@@ -27,15 +32,8 @@ export default {
     min-height: 100vh;
     flex-direction: column;
 }
-.ant-layout-header {
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-}
 .ant-layout-content {
     margin-top: 64px;
     flex: 1;
-}
-.ant-layout-footer {
 }
 </style>

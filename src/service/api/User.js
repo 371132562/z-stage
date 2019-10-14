@@ -9,7 +9,8 @@
 import Request from '@/service/Request'
 
 export default new (class extends Request {
-    session(data = {}) {
-        return this.post('/passport/local', data)
+    isAuth(params = {}) {
+        //检查登录用户
+        return this.get('/isAuth', params)
     }
 })()
