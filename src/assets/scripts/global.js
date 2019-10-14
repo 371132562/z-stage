@@ -1,9 +1,9 @@
 /*
- * @描述: 全局js
- * @创建者: Zhao Linxing
- * @创建时间: 2019/9/24 20:55
- * @修改人:
- * @修改时间:
+ * @Description: 全局js 管理插件组件等配置
+ * @Author: Zhao Linxing
+ * @CreateTime: 2019-09-24 20:55:26
+ * @LastEditor: Zhao Linxing
+ * @LastEditTime: 2019-10-14 21:30:01
  */
 
 import Vue from 'vue'

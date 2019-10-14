@@ -3,7 +3,7 @@
  * @Author: Zhao Linxing
  * @CreateTime: 2019-09-25 18:04:21
  * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-13 22:16:30
+ * @LastEditTime: 2019-10-14 22:02:25
  */
 
 import { notification, message } from 'ant-design-vue'
@@ -11,7 +11,7 @@ import { Loading } from 'element-ui'
 
 let loading //Loading实例
 
-const utils = {
+const Utils = {
     initFormData(data = {}) {
         /*json数据转为FormData*/
         let ret = ''
@@ -112,4 +112,4 @@ const utils = {
     }
 }
 
-export default utils
+export default Utils

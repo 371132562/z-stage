@@ -1,19 +1,18 @@
 /*
- * @描述: 脚本集中管理
- * @创建者: Zhao Linxing
- * @创建时间: 2019/9/24 20:53
- * @修改人:
- * @修改时间:
+ * @Description: js集中引入
+ * @Author: Zhao Linxing
+ * @CreateTime: 2019-09-25 18:04:21
+ * @LastEditor: Zhao Linxing
+ * @LastEditTime: 2019-10-14 22:02:35
  */
 
 import Vue from 'vue'
 
-import utils from '@/assets/scripts/utils.js'
+import Utils from '@/assets/scripts/Utils.js'
 
 import '@/assets/scripts/global.js'
 import '@/assets/scripts/plugins/antdesign.js'
 
 //组件
 
-Vue.prototype.$utils = utils
-export { utils }
+Vue.prototype.$Utils = Utils

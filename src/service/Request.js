@@ -1,7 +1,15 @@
+/*
+ * @Description: Axios封装
+ * @Author: Zhao Linxing
+ * @CreateTime: 2019-09-25 18:04:21
+ * @LastEditor: Zhao Linxing
+ * @LastEditTime: 2019-10-14 22:02:49
+ */
 import Axios from 'axios'
-import { utils } from '@/assets/scripts'
+import Utils from '@/assets/scripts/Utils.js'
+import Config from '@/assets/scripts/Config.js'
 
-let csrfToken = utils.getCookie('csrfToken')
+// let csrfToken = Utils.getCookie('csrfToken')
 
 class Request {
     constructor() {}
@@ -18,25 +26,25 @@ class Request {
         // 添加请求拦截器
         instance.interceptors.request.use(
             config => {
-                // 在发送请求之前做些什么
-                // if (!config.data.loadingSilent) utils.loadingOpen({})
+                // if (!config.data.loadingSilent) Utils.loadingOpen({})
                 return config
             },
             function(error) {
-                // 对请求错误做些什么
                 return Promise.reject(error)
             }
         )
         // 添加响应拦截器
         instance.interceptors.response.use(
             resp => {
-                // 对响应数据做点什么
-                utils.loadingClose()
+                Utils.loadingClose()
                 return resp.data
             },
             error => {
-                // 对响应错误做点什么
-                utils.loadingClose()
+                const { response } = error
+                Utils.loadingClose()
+                Utils.messageError(
+                    response.status + '  ' + (Config.isProd ? '' : response.config.url)
+                )
                 return Promise.reject(error)
             }
         )
@@ -63,7 +71,7 @@ class Request {
             : this.request({
                   method: 'POST',
                   url,
-                  data: utils.initFormData(data),
+                  data: Utils.initFormData(data),
                   headers: Object.assign(
                       { 'Content-Type': 'application/x-www-form-urlencoded' },
                       headers
