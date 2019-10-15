@@ -3,12 +3,12 @@
  * @Author: Zhao Linxing
  * @CreateTime: 2019-10-14 13:44:33
  * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-14 15:53:03
+ * @LastEditTime: 2019-10-15 09:09:45
  -->
 
 <template>
     <a-layout-header>
-        <div class="user-info">{{ username }}</div>
+        <div class="user-info">{{ userInfo.username }}</div>
     </a-layout-header>
 </template>
 
@@ -17,9 +17,7 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
     data() {
-        return {
-            username: ''
-        }
+        return {}
     },
     computed: {
         ...mapGetters(['userInfo'])
@@ -43,6 +41,7 @@ export default {
     .user-info {
         float: right;
         color: white;
+        cursor: pointer;
     }
 }
 </style>

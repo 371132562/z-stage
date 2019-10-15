@@ -3,7 +3,7 @@
  * @Author: Zhao Linxing
  * @CreateTime: 2019-09-20 09:13:19
  * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-14 14:01:21
+ * @LastEditTime: 2019-10-15 09:05:09
  */
 
 import Vue from 'vue'
@@ -34,7 +34,7 @@ export default new Vuex.Store({
     actions: {
         getUserInfo({ commit }) {
             UserApi.isAuth().then(resp => {
-                commit(types.USER_INFO, resp.data)
+                commit(types.USER_INFO, resp)
             })
         }
     }

@@ -3,7 +3,7 @@
  * @Author: Zhao Linxing
  * @CreateTime: 2019-10-08 08:44:43
  * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-14 13:48:08
+ * @LastEditTime: 2019-10-15 14:29:21
  -->
 
 <template>
@@ -18,6 +18,7 @@
 
 <script>
 import Header from './Header'
+
 export default {
     name: 'index',
     components: {

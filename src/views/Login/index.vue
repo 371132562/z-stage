@@ -3,7 +3,7 @@
  * @Author: Zhao Linxing
  * @CreateTime: 2019-10-12 09:23:05
  * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-14 14:56:39
+ * @LastEditTime: 2019-10-15 14:30:49
  -->
 
 <template>
@@ -20,32 +20,33 @@
                     placeholder="用户名"
                     ref="usernameInput"
                 >
-                    <a-icon slot="prefix" type="user" />
-                    <a-icon
+                    <a-icon slot="suffix" type="user" />
+                    <!-- <a-icon
                         slot="suffix"
                         type="close-circle"
                         v-if="params.username"
                         @click="usernameEmpty"
-                    />
+                    /> -->
                 </a-input>
-                <a-input
+                <a-input-password
                     v-model="params.password"
                     size="large"
                     class="login-input"
                     placeholder="密码"
                     ref="usernameInput"
                 >
-                    <a-icon slot="prefix" type="lock" />
-                </a-input>
+                    <!-- <a-icon slot="prefix" type="lock" /> -->
+                </a-input-password>
             </section>
             <section class="login-hint">
                 <span @click="register">新用户注册</span>
                 <span>忘记密码</span>
             </section>
             <section class="login-bottom">
-                <a-button type="primary" size="large" @click="login">
+                <a-button type="primary" size="large" @click="login" :loading="loading">
+                    开 始
                     <i class="iconfont iconGamepad"></i>
-                    开 始 游 戏
+                    游 戏
                 </a-button>
             </section>
         </main>
@@ -53,21 +54,32 @@
 </template>
 
 <script>
-import { RegisterApi } from '@/service'
+import { RegisterApi, SteamApi } from '@/service'
 
 export default {
     name: 'index',
     data() {
         return {
+            loading: false,
             params: {
                 username: '',
                 password: ''
             }
         }
     },
+    created() {
+        SteamApi.getGameDetails({ appId: 323850 })
+    },
     methods: {
         login() {
+            this.loading = true
             RegisterApi.login(this.params)
+                .then(() => {
+                    this.loading = false
+                })
+                .catch(() => {
+                    this.loading = false
+                })
         },
         register() {
             RegisterApi.register(this.params)
@@ -119,7 +131,7 @@ main {
     }
 
     .login-top {
-        padding-top: 80px;
+        padding-top: 76px;
 
         .login-input {
             width: 260px;
@@ -151,12 +163,9 @@ main {
     .login-bottom {
         padding: 30px 0 40px;
         i {
-            margin-right: 16px;
+            margin: 0 10px;
             font-size: 26px;
             vertical-align: sub;
-        }
-        span {
-            margin-right: 20px;
         }
     }
 }

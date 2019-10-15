@@ -3,7 +3,7 @@
  * @Author: Zhao Linxing
  * @CreateTime: 2019-09-25 18:04:21
  * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-14 22:02:49
+ * @LastEditTime: 2019-10-15 14:33:26
  */
 import Axios from 'axios'
 import Utils from '@/assets/scripts/Utils.js'
@@ -17,7 +17,7 @@ class Request {
     //默认配置
     defaultConfig = {
         baseURL: process.env.VUE_APP_BASE_URL,
-        timeout: 1000 * 20,
+        timeout: 1000 * 20000,
         withCredentials: true
     }
 
@@ -37,6 +37,28 @@ class Request {
         instance.interceptors.response.use(
             resp => {
                 Utils.loadingClose()
+                switch (resp.data.code) {
+                    case 11: //用户名不存在
+                    case 12: //密码错误
+                        Utils.messageWarning(resp.data.msg)
+                        break
+
+                    case 13: //用户名已存在
+                        Utils.messageInfo(resp.data.msg)
+                        break
+
+                    case 14: //已登出
+                        Utils.notificationSuccess(resp.data.msg)
+                        break
+
+                    case 15: //未登录
+                    case 16: //登录信息过期，需重新登录
+                        Utils.notificationInfo(resp.data.msg)
+                        break
+
+                    default:
+                        return resp.data
+                }
                 return resp.data
             },
             error => {
