@@ -3,12 +3,12 @@
  * @Author: Zhao Linxing
  * @CreateTime: 2019-09-25 18:04:21
  * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-14 22:02:35
+ * @LastEditTime: 2019-10-17 18:39:54
  */
 
 import Vue from 'vue'
 
-import Utils from '@/assets/scripts/Utils.js'
+import Utils from '@/assets/scripts/utils.js'
 
 import '@/assets/scripts/global.js'
 import '@/assets/scripts/plugins/antdesign.js'
