@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "vue-cli-service serve --open",
     "build": "vue-cli-service build --no-clean",
     "lint": "vue-cli-service lint",
     "clean": "vue-cli-service build",
-    "report": "vue-cli-service build --report",
-    "start": "vue-cli-service serve --open"
+    "report": "vue-cli-service build --report"
   },
   "dependencies": {
     "ant-design-vue": "^1.4.0",
