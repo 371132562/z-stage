@@ -3,10 +3,10 @@
  * @Author: Zhao Linxing
  * @CreateTime: 2019-09-25 18:04:21
  * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-17 18:40:08
+ * @LastEditTime: 2019-10-22 09:12:08
  */
 import Axios from 'axios'
-import Utils from '@/assets/scripts/utils.js'
+import Utils from '@/assets/scripts/Utils.js'
 import Config from '@/assets/scripts/Config.js'
 
 // let csrfToken = Utils.getCookie('csrfToken')
