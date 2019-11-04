@@ -13,4 +13,9 @@ export default new (class extends Request {
         //获取游戏详情
         return this.post('/getGameDetails', data)
     }
+
+    manualGetAllGames(data = {}) {
+        //手动更新游戏库信息
+        return this.post('/manualGetAllGames', data)
+    }
 })()

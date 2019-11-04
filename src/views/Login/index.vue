@@ -1,11 +1,3 @@
-<!--
- * @Description: 登录页
- * @Author: Zhao Linxing
- * @CreateTime: 2019-10-12 09:23:05
- * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-15 14:30:49
- -->
-
 <template>
     <div>
         <div class="login-wrap" style=""></div>
@@ -40,7 +32,7 @@
             </section>
             <section class="login-hint">
                 <span @click="register">新用户注册</span>
-                <span>忘记密码</span>
+                <span @click="manualGetAllGames">忘记密码</span>
             </section>
             <section class="login-bottom">
                 <a-button type="primary" size="large" @click="login" :loading="loading">
@@ -68,7 +60,7 @@ export default {
         }
     },
     created() {
-        SteamApi.getGameDetails({ appId: 323850 })
+        // SteamApi.getGameDetails({ appId: 323850 })
     },
     methods: {
         login() {
@@ -87,6 +79,9 @@ export default {
         usernameEmpty() {
             this.params.username = ''
             this.$refs.usernameInput.focus()
+        },
+        manualGetAllGames() {
+            SteamApi.manualGetAllGames()
         }
     }
 }
