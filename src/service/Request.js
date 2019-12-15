@@ -1,15 +1,6 @@
-/*
- * @Description: Axios封装
- * @Author: Zhao Linxing
- * @CreateTime: 2019-09-25 18:04:21
- * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-22 09:12:08
- */
 import Axios from 'axios'
-import Utils from '@/assets/scripts/Utils.js'
-import Config from '@/assets/scripts/Config.js'
-
-// let csrfToken = Utils.getCookie('csrfToken')
+import Utils from '@/utils'
+import Config from '@/config'
 
 class Request {
     constructor() {}
@@ -36,24 +27,20 @@ class Request {
         // 添加响应拦截器
         instance.interceptors.response.use(
             resp => {
-                Utils.loadingClose()
+                // Utils.loadingClose()
                 switch (resp.data.code) {
                     case 11: //用户名不存在
                     case 12: //密码错误
-                        Utils.messageWarning(resp.data.msg)
                         break
 
                     case 13: //用户名已存在
-                        Utils.messageInfo(resp.data.msg)
                         break
 
                     case 14: //已登出
-                        Utils.notificationSuccess(resp.data.msg)
                         break
 
                     case 15: //未登录
                     case 16: //登录信息过期，需重新登录
-                        Utils.notificationInfo(resp.data.msg)
                         break
 
                     default:
@@ -63,10 +50,7 @@ class Request {
             },
             error => {
                 const { response } = error
-                Utils.loadingClose()
-                Utils.messageError(
-                    response.status + '  ' + (Config.isProd ? '' : response.config.url)
-                )
+                // Utils.loadingClose()
                 return Promise.reject(error)
             }
         )

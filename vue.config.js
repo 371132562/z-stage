@@ -4,7 +4,7 @@ module.exports = {
     publicPath: '',
     productionSourceMap: false,
     configureWebpack: {
-        plugins: [new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/)]
+        plugins: [new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/)] //moment只加载中文包
     },
     devServer: {
         disableHostCheck: true,

@@ -1,13 +1,7 @@
 /*
- * @Description: Api管理
- * @Author: Zhao Linxing
- * @CreateTime: 2019-09-27 08:28:32
- * @LastEditor: Zhao Linxing
- * @LastEditTime: 2019-10-15 14:29:00
+ * @描述: Api统一管理
+ * @创建者: Zhao Linxing
+ * @创建时间: 2019/12/15 18:57
+ * @修改人:
+ * @修改时间:
  */
-
-import UserApi from './api/User.js'
-import RegisterApi from './api/Register.js'
-import SteamApi from './api/Steam.js'
-
-export { UserApi, RegisterApi, SteamApi }
